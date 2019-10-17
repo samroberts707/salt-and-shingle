@@ -4,7 +4,8 @@
     </nav>
 </template>
 <style lang="scss" scoped>
-    div.navigation {
+    nav.navigation {
         display: block;
+        position: absolute;
     }
 </style>
