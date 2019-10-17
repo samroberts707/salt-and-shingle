@@ -62,6 +62,9 @@ export default {
     border-collapse: collapse;
     border-spacing: 0;
   }
+  :root {
+    --beige: #e7e7db;
+  }
   @import url('https://fonts.googleapis.com/css?family=Grenze:300,400|Marck+Script&display=swap');
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Marck Script', cursive;
