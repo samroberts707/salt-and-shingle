@@ -2,7 +2,7 @@
     <div class="patrons-wrapper">
         <h1>Patrons</h1>
         <div class="patrons">
-            <PatronItem />  
+            <PatronItem v-for='item in characters' />
         </div>
     </div>
 </template>
@@ -11,6 +11,11 @@ import PatronItem from './Patron-Item'
 export default {
     components: {
         PatronItem
+    },
+    computed: {
+        characters () {
+            return this.$store.getters.characters
+        }
     }
 }
 </script>
