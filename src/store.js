@@ -24,6 +24,7 @@ export default new Vuex.Store({
           'Abyssal'
         ],
         'level': 4,
+        'name': 'Kritanta',
         'proficiency-bonus': '+3',
         'race': 'Aasimar',
         'skills': {
@@ -67,6 +68,7 @@ export default new Vuex.Store({
           'Giant'
         ],
         'level': 4,
+        'name': 'Sariel',
         'proficiency-bonus': '+3',
         'race': 'Goliath',
         'skills': {
@@ -92,16 +94,16 @@ export default new Vuex.Store({
         'weapon': 'Shortbow'
       },
       'ea': {
-
+        'name': 'Ea'
       },
       'rhogar': {
-
+        'name': 'Rhogar'
       },
       'travok': {
-
+        'name': 'Travok'
       },
       'indigo': {
-
+        'name': 'Indigo'
       }
     }
   },
