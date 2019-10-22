@@ -26,7 +26,7 @@ export default {
         background-color: var(--beige);
         h1 {
             color: #4a649e;
-            font-size: 10vw;
+            font-size: 8vw;
             text-align: center;
             margin-bottom: 100px;
         }
@@ -34,7 +34,7 @@ export default {
             display: grid;
             grid-template-columns: 1fr 1fr;
             column-gap: 75px;
-            row-gap: 75px;
+            row-gap: 200px;
             @media screen and (max-width: 768px) {
                 grid-template-columns: 1fr;
             }

@@ -47,6 +47,7 @@ export default new Vuex.Store({
           'Stealth': 0,
           'Survival': 1
         },
+        'stl': 'assets/character-objs/ellie.obj',
         'weapon': 'Quarterstaff'
       },
       'sariel': {
@@ -91,19 +92,24 @@ export default new Vuex.Store({
           'Stealth': 0,
           'Survival': -1
         },
+        'stl': 'assets/character-objs/chan.obj',
         'weapon': 'Shortbow'
       },
       'ea': {
-        'name': 'Ea'
+        'name': 'Ea',
+        'stl': 'assets/character-objs/taylor.obj'
       },
       'rhogar': {
-        'name': 'Rhogar'
+        'name': 'Rhogar',
+        'stl': 'assets/character-objs/nathan.obj'
       },
       'travok': {
-        'name': 'Travok'
+        'name': 'Travok',
+        'stl': 'assets/character-objs/sam.obj'
       },
       'indigo': {
-        'name': 'Indigo'
+        'name': 'Indigo',
+        'stl': 'assets/character-objs/indigo.obj'
       }
     }
   },
