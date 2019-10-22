@@ -5,12 +5,123 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-
+    'characters': {
+      'kritanta': {
+        'alignment': 'Chaotic Neutral',
+        'background': 'Hermit',
+        'base': {
+          'Strength': 15,
+          'Dexterity': 10,
+          'Constitution': 15,
+          'Intelligence': 8,
+          'Wisdom': 12,
+          'Charisma': 15
+        },
+        'class': 'Sorcerer',
+        'languages': [
+          'Common',
+          'Celestial',
+          'Abyssal'
+        ],
+        'level': 4,
+        'name': 'Kritanta',
+        'proficiency-bonus': '+3',
+        'race': 'Aasimar',
+        'skills': {
+          'Acrobatics': 0,
+          'Animal Handling': 1,
+          'Arcana': -1,
+          'Athletics': 2,
+          'Deception': 2,
+          'History': -1,
+          'Insight': 4,
+          'Intimidation': 5,
+          'Investigation': -1,
+          'Medicine': 4,
+          'Nature': -1,
+          'Perception': 1,
+          'Performance': 2,
+          'Persuation': 2,
+          'Religion': 2,
+          'Slieght of Hand': 0,
+          'Stealth': 0,
+          'Survival': 1
+        },
+        'stl': 'assets/character-objs/ellie.obj',
+        'weapon': 'Quarterstaff'
+      },
+      'sariel': {
+        'alignment': 'Chaotic Neutral',
+        'background': 'Sage',
+        'base': {
+          'Strength': 14,
+          'Dexterity': 10,
+          'Constitution': 14,
+          'Intelligence': 15,
+          'Wisdom': 8,
+          'Charisma': 15
+        },
+        'class': 'Warlock',
+        'languages': [
+          'Common',
+          'Abyssal',
+          'Deep Speech',
+          'Giant'
+        ],
+        'level': 4,
+        'name': 'Sariel',
+        'proficiency-bonus': '+3',
+        'race': 'Goliath',
+        'skills': {
+          'Acrobatics': 0,
+          'Animal Handling': -1,
+          'Arcana': 4,
+          'Athletics': 4,
+          'Deception': 4,
+          'History': 4,
+          'Insight': -1,
+          'Intimidation': 2,
+          'Investigation': 4,
+          'Medicine': -1,
+          'Nature': 2,
+          'Perception': -1,
+          'Performance': 2,
+          'Persuation': 2,
+          'Religion': 2,
+          'Slieght of Hand': 0,
+          'Stealth': 0,
+          'Survival': -1
+        },
+        'stl': 'assets/character-objs/chan.obj',
+        'weapon': 'Shortbow'
+      },
+      'ea': {
+        'name': 'Ea',
+        'stl': 'assets/character-objs/taylor.obj'
+      },
+      'rhogar': {
+        'name': 'Rhogar',
+        'stl': 'assets/character-objs/nathan.obj'
+      },
+      'travok': {
+        'name': 'Travok',
+        'stl': 'assets/character-objs/sam.obj'
+      },
+      'indigo': {
+        'name': 'Indigo',
+        'stl': 'assets/character-objs/indigo.obj'
+      }
+    }
   },
   mutations: {
 
   },
   actions: {
 
+  },
+  getters: {
+    characters: state => {
+      return state.characters
+    }
   }
 })
