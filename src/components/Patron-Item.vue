@@ -1,7 +1,9 @@
 <template>
     <router-link :to="character.name" class="patron">
-        <div class="canvas-wrapper" :id="character.name + '_canvas_wrapper'"></div>
-        <h2>{{ character.name }}</h2>
+        <div class="card">
+            <div class="canvas-wrapper" :id="character.name + '_canvas_wrapper'"></div>
+            <h2>{{ character.name }}</h2>
+        </div>
     </router-link>
 </template>
 <script>
@@ -58,30 +60,37 @@ export default {
 <style lang="scss" scoped>
     a.patron {
         display: block;
-        background-image: url('../assets/imgs/card.png');
-        background-size: contain;
-        background-position: center center;
-        background-repeat: no-repeat;
-        min-height: 400px;
+        
         text-decoration: none;
-        div.canvas-wrapper {
-            width: 35%;
-            height: 45%;
+        div.card {
+            background-image: url('../assets/imgs/card.png');
+            background-size: contain;
+            background-position: center center;
+            background-repeat: no-repeat;
+            width: 270px;
+            height: 400px;
             margin-left: auto;
             margin-right: auto;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-        h2 {
-            display: block;
-            text-align: center;
-            text-decoration: none;
-            color: #000;
-            font-size: 2vw;
-            @media screen and (max-width: 768px) {
-                font-size: 5vw;
+            div.canvas-wrapper {
+                width: 190px;
+                height: 200px;
+                margin-left: auto;
+                margin-right: auto;
+                padding-top: 30px;
+                margin-bottom: 15px;
+            }
+            h2 {
+                display: block;
+                text-align: center;
+                text-decoration: none;
+                color: #000;
+                font-size: 2vw;
+                @media screen and (max-width: 768px) {
+                    font-size: 5vw;
+                }
             }
         }
+        
     }
     
 </style>
