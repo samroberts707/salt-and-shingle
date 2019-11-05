@@ -18,7 +18,6 @@ export default {
         var camera = new THREE.PerspectiveCamera( 75, 190/185, 0.1, 1000 );
         var loader = new THREE.OBJLoader();
 
-        
         var renderer = new THREE.WebGLRenderer({ alpha: true });
         renderer.setSize( 190, 185 );
         renderer.antialias = true;
@@ -26,38 +25,35 @@ export default {
 
         var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
 
-        // Basic Cube
-        // var geometry = new THREE.BoxGeometry( 1, 1, 1 );
-        // var cube = new THREE.Mesh( geometry, material );
-        // scene.add( cube );
+        var light = new THREE.PointLight(0xffffff, 1, 1000);
+        light.position.set( 50, 50, 50 );
+        scene.add( light );
 
         loader.load(
-            // this.$props.character.stl,
-            'https://raw.githubusercontent.com/samroberts707/salt-and-shingle/master/src/assets/character-objs/ellie.obj',
-            // 'assets/character-objs/captain-america-bust.stl',
+            'https://raw.githubusercontent.com/samroberts707/salt-and-shingle/dev/src/assets/character-objs/ellie.obj',
             function( object ) {
+                object.castShadow = true;
+                object.acceptShadow = true;
+                object.rotation.y = 200;
                 scene.add(object)
             },
             function( xhr ) {
-                console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+                // console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
             },
             function ( error ) {
-                console.log( error );
+                // console.log( error );
             }
         );
 
-        camera.position.z = 5;
-        // camera.position.y = 1;
+        camera.position.set( 0, 15, 40 );
 
         var animate = function () {
             requestAnimationFrame(animate)
 
-            // cube.rotation.x += 0.01;
-            // cube.rotation.y += 0.01;
+            scene.children[1].rotation.y += 0.01;
 
             renderer.render(scene, camera)
         }
-
         animate()
     }
 }
