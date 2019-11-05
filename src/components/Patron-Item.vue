@@ -1,9 +1,13 @@
 <template>
     <div class="patron">
-        <div class="card">
+        <router-link class="card" :to="this.$props.character.name">
             <div class="canvas-wrapper" :id="character.name + '_canvas_wrapper'"></div>
             <h2>{{ character.name }}</h2>
-        </div>
+            <div class="character-information">
+                <img class="race" :alt="character.race" :src="'./assets/imgs/races/' + character.race + '.png'" />
+                <img class="class" :alt="character.class" :src="'./assets/imgs/classes/' + character.class + '.jpeg'" />
+            </div>
+        </router-link>
     </div>
 </template>
 <script>
@@ -23,10 +27,8 @@ export default {
         renderer.antialias = true;
         wrapper.appendChild(renderer.domElement);
 
-        var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-
-        var light = new THREE.PointLight(0xffffff, 1, 1000);
-        light.position.set( 50, 50, 50 );
+        var light = new THREE.PointLight(0xffffff, 1, 5000);
+        light.position.set( 500, 500, 500 );
         scene.add( light );
 
         loader.load(
@@ -34,7 +36,7 @@ export default {
             function( object ) {
                 object.castShadow = true;
                 object.acceptShadow = true;
-                object.rotation.y = 200;
+                object.scale.set(10,10,10);
                 scene.add(object)
             },
             function( xhr ) {
@@ -45,7 +47,7 @@ export default {
             }
         );
 
-        camera.position.set( 0, 15, 40 );
+        camera.position.set( 0, 200, 400 );
 
         var animate = function () {
             requestAnimationFrame(animate)
@@ -61,8 +63,9 @@ export default {
 <style lang="scss" scoped>
     .patron {
         display: block;
-        text-decoration: none;
-        div.card {
+        .card {
+            display: block;
+            position: relative;
             background-image: url('../assets/imgs/card.png');
             background-size: contain;
             background-position: center center;
@@ -71,6 +74,7 @@ export default {
             height: 400px;
             margin-left: auto;
             margin-right: auto;
+            text-decoration: none;
             div.canvas-wrapper {
                 width: 190px;
                 height: 185px;
@@ -85,6 +89,26 @@ export default {
                 text-decoration: none;
                 color: #000;
                 font-size: 29px;
+                margin-bottom: 25px;
+            }
+            div.character-information {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                column-gap: 30px;
+                padding: 2px 45px;
+                img {
+                    display: block;
+                    width: 100%;
+                    height: auto;
+                    position: relative;
+                    transition: transform 0.3s ease-in-out;
+                    &.class {
+                        border-radius: 20px;
+                    }
+                    &:hover {
+                        transform: scale(1.1);
+                    }
+                }
             }
         }
     }

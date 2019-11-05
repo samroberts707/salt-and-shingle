@@ -1,15 +1,10 @@
 <template>
   <div id="app">
-    <Navigation/>
     <router-view/>
   </div>
 </template>
 <script>
-import Navigation from './components/Navigation'
 export default {
-  components: {
-    Navigation
-  }
 }
 </script>
 
@@ -46,6 +41,7 @@ export default {
   }
   body {
     line-height: 1;
+    overflow-x: hidden;
   }
   ol, ul {
     list-style: none;
