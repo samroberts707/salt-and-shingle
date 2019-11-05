@@ -4,7 +4,7 @@
             <div class="canvas-wrapper" :id="character.name + '_canvas_wrapper'"></div>
             <h2>{{ character.name }}</h2>
             <div class="character-information">
-                <img class="race" :alt="character.race" />
+                <img class="race" :alt="character.race" :src="'./assets/imgs/races/' + character.race + '.png'" />
                 <img class="class" :alt="character.class" :src="'./assets/imgs/classes/' + character.class + '.jpeg'" />
             </div>
         </router-link>
