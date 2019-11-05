@@ -21,7 +21,7 @@
         justify-items: center;
         div.content-wrapper {
             text-align: center;
-            padding: 7% 14% 17% 14%;
+            padding: 6% 10% 11% 10%;
             background-image: url('../assets/imgs/flag.png');
             background-repeat: no-repeat;
             background-position: center center;
@@ -31,7 +31,18 @@
                 font-size: 6vw;
             }
             h1 {
-                font-size: 8vw;
+                font-size: 5vw;
+            }
+        }
+        @media screen and (max-width: 768px) {
+            div.content-wrapper {
+                padding: 7% 14% 17% 14%;
+                 h2 {
+                font-size: 6vw;
+                }
+                h1 {
+                    font-size: 8vw;
+                }
             }
         }
     }
