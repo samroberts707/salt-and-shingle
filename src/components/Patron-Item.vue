@@ -30,7 +30,7 @@ export default {
         scene.add( light );
 
         loader.load(
-            'https://raw.githubusercontent.com/samroberts707/salt-and-shingle/dev/src/assets/character-objs/ellie.obj',
+            'https://raw.githubusercontent.com/samroberts707/salt-and-shingle/dev/src/assets/character-objs/' + this.$props.character.obj,
             function( object ) {
                 object.castShadow = true;
                 object.acceptShadow = true;
