@@ -9,14 +9,14 @@
 <script>
 import PatronItem from './Patron-Item'
 export default {
-    components: {
-        PatronItem
-    },
-    computed: {
-        characters () {
-            return this.$store.getters.characters
-        }
+  components: {
+    PatronItem
+  },
+  computed: {
+    characters () {
+      return this.$store.getters.characters
     }
+  }
 }
 </script>
 <style lang="scss" scoped>

@@ -11,53 +11,58 @@
     </div>
 </template>
 <script>
-var THREE = require('three');
-var OBJLoader = require('three-obj-loader');
+var THREE = require('three')
+var OBJLoader = require('three-obj-loader')
 export default {
-    props: ['character'],
-    mounted() {
-        OBJLoader(THREE);
-        var wrapper = document.getElementById(this.$props.character.name + '_canvas_wrapper');
-        var scene = new THREE.Scene();
-        var camera = new THREE.PerspectiveCamera( 75, 190/185, 0.1, 1000 );
-        var loader = new THREE.OBJLoader();
+  props: ['character'],
+  mounted () {
+    OBJLoader(THREE)
+    var wrapper = document.getElementById(this.$props.character.name + '_canvas_wrapper')
+    var scene = new THREE.Scene()
+    var camera = new THREE.PerspectiveCamera(75, 190 / 185, 0.1, 1000)
+    var loader = new THREE.OBJLoader()
 
-        var renderer = new THREE.WebGLRenderer({ alpha: true });
-        renderer.setSize( 190, 185 );
-        renderer.antialias = true;
-        wrapper.appendChild(renderer.domElement);
+    var renderer = new THREE.WebGLRenderer({ alpha: true })
+    renderer.setSize(190, 185)
+    renderer.antialias = true
+    wrapper.appendChild(renderer.domElement)
 
-        var light = new THREE.PointLight(0xffffff, 1, 5000);
-        light.position.set( 500, 500, 500 );
-        scene.add( light );
+    var light = new THREE.PointLight(0xffffff, 1, 5000)
+    light.position.set(500, 500, 500)
+    scene.add(light)
 
-        loader.load(
-            'https://raw.githubusercontent.com/samroberts707/salt-and-shingle/dev/src/assets/character-objs/' + this.$props.character.obj,
-            function( object ) {
-                object.castShadow = true;
-                object.acceptShadow = true;
-                object.scale.set(10,10,10);
-                scene.add(object)
-            },
-            function( xhr ) {
-                // console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-            },
-            function ( error ) {
-                // console.log( error );
-            }
-        );
+    var modelLoaded = false
 
-        camera.position.set( 0, 200, 400 );
+    loader.load(
+      'https://raw.githubusercontent.com/samroberts707/salt-and-shingle/dev/src/assets/character-objs/' + this.$props.character.obj,
+      function (object) {
+        object.castShadow = true
+        object.acceptShadow = true
+        object.scale.set(10, 10, 10)
+        scene.add(object)
+        modelLoaded = true
+      },
+      function (xhr) {
+        // console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+      },
+      function (error) {
+        console.log(error)
+      }
+    )
 
-        var animate = function () {
-            requestAnimationFrame(animate)
+    camera.position.set(0, 200, 400)
 
-            scene.children[1].rotation.y += 0.01;
+    var animate = function () {
+      requestAnimationFrame(animate)
 
-            renderer.render(scene, camera)
-        }
-        animate()
+      if (modelLoaded) {
+        scene.children[1].rotation.y += 0.01
+      }
+
+      renderer.render(scene, camera)
     }
+    animate()
+  }
 }
 </script>
 <style lang="scss" scoped>
