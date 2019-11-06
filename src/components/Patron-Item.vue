@@ -1,6 +1,6 @@
 <template>
     <div class="patron">
-        <router-link class="card" :to="this.$props.character.name">
+        <router-link class="card" :to="'/patron/' + this.$props.character.name">
             <div class="canvas-wrapper" :id="character.name + '_canvas_wrapper'"></div>
             <h2>{{ character.name }}</h2>
             <div class="character-information">
