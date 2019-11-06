@@ -35,7 +35,14 @@ export default {
             grid-template-columns: 1fr 1fr;
             column-gap: 75px;
             row-gap: 200px;
-            @media screen and (max-width: 768px) {
+        }
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 16vw;
+                margin-bottom: 50px;
+            }
+            div.patrons {
+                row-gap: 100px;
                 grid-template-columns: 1fr;
             }
         }
