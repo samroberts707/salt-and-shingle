@@ -280,6 +280,9 @@ export default new Vuex.Store({
   getters: {
     characters: state => {
       return state.characters
+    },
+    patron: (state) => (name) => {
+      return state.characters[name.toLowerCase()]
     }
   }
 })
