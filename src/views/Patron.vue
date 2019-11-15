@@ -4,6 +4,14 @@
             <div id="canvas_wrapper"></div>
             <h1 class="name">{{ patron.name }}</h1>
         </div>
+        <div class="details">
+          <div class="base-stats">
+            <div class="stat-wrapper" v-for='(stat, key) in this.patron.base' v-bind:key='key'>
+              <h4 class="stat-name">{{ key }}</h4>
+              <h2 class="stat">{{ stat }}</h2>
+            </div>
+          </div>
+        </div>
     </div>
 </template>
 <script>
@@ -119,12 +127,52 @@ export default {
                 margin-top: 400px;
             }
         }
+        div.details {
+          display: block;
+          position: relative;
+          padding: 5% 10%;
+          background-color: var(--beige);
+          div.base-stats {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+            column-gap: 50px;
+            justify-content: center;
+            align-content: center;
+            div.stat-wrapper {
+              h4.stat-name {
+                font-size: 1.5vw;
+                text-align: center;
+                margin-bottom: 20px;
+              }
+              h2.stat {
+                font-size: 2.5vw;
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+                width: 94px;
+                height: 70px;
+                padding-top: 30px;
+                background-image: url('../assets/imgs/stat_background.png');
+                background-position: center center;
+                background-size: cover;
+                background-repeat: no-repeat;
+              }
+            }
+            
+          }
+        }
         @media screen and (max-width: 768px) {
             div.header {
                 height: 156.25vw;
                 h1.name {
                   font-size: 6vw;
                 }
+            }
+            div.details {
+              div.base-stats {
+                grid-template-columns: 1fr 1fr;
+              }
             }
         }
     }
