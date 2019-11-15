@@ -172,6 +172,17 @@ export default {
             div.details {
               div.base-stats {
                 grid-template-columns: 1fr 1fr;
+                div.stat-wrapper {
+                  margin-bottom: 30px;
+                  h4.stat-name {
+                    font-size: 5vw;
+                  }
+                  h2.stat {
+                    font-size: 11vw;
+                    height: 77px;
+                    padding-top: 23px;
+                  }
+                }
               }
             }
         }
