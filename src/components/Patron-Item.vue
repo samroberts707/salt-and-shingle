@@ -1,12 +1,17 @@
 <template>
     <div class="patron">
-        <router-link class="card" :to="'/patron/' + this.$props.character.name">
+        <router-link class="card" :to="'/patron/' + this.$props.character.name" v-in-viewport.once>
+          <div class="card-back">
+            <img src="../assets/imgs/card-back.png" alt="">
+          </div>
+          <div class="card-front">
             <div class="canvas-wrapper" :id="character.name + '_canvas_wrapper'"></div>
-            <h2>{{ character.name }}</h2>
-            <div class="character-information">
-                <img class="race" :alt="character.race" :src="'./assets/imgs/races/' + character.race + '.png'" />
-                <img class="class" :alt="character.class" :src="'./assets/imgs/classes/' + character.class + '.jpeg'" />
-            </div>
+              <h2>{{ character.name }}</h2>
+              <div class="character-information">
+                  <img class="race" :alt="character.race" :title="character.race" :src="'./assets/imgs/races/' + character.race + '.png'" />
+                  <img class="class" :alt="character.class" :title="character.class" :src="'./assets/imgs/classes/' + character.class + '.jpeg'" />
+              </div>
+          </div>
         </router-link>
     </div>
 </template>
@@ -71,16 +76,42 @@ export default {
         .card {
             display: block;
             position: relative;
-            background-image: url('../assets/imgs/card.png');
-            background-size: contain;
-            background-position: center center;
-            background-repeat: no-repeat;
             width: 270px;
             height: 400px;
             margin-left: auto;
             margin-right: auto;
             text-decoration: none;
-            div.canvas-wrapper {
+            transform-style: preserve-3d;
+            transition: transform 1s ease-in-out;
+            transition-delay: 0.25s;
+            &.in-viewport {
+              transform: rotateY(180deg);
+            }
+            div.card-back, div.card-front {
+              position: absolute;
+              top: 0;
+              left: 0;
+              backface-visibility: hidden;
+              transition: transform 0.5s ease-in-out;
+            }
+            div.card-back {
+              width: 100%;
+              height: 100%;
+              img {
+                display: block;
+                width: 100%;
+                height: 100%;
+              }
+            }
+            div.card-front {
+              width: 100%;
+              height: 100%;
+              background-image: url('../assets/imgs/card.png');
+              background-size: contain;
+              background-position: center center;
+              background-repeat: no-repeat;
+              transform: rotateY(180deg);
+              div.canvas-wrapper {
                 width: 190px;
                 height: 185px;
                 margin-left: auto;
@@ -114,6 +145,7 @@ export default {
                         transform: scale(1.1);
                     }
                 }
+              }
             }
         }
     }

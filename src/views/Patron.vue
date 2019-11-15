@@ -9,6 +9,7 @@
 <script>
 var THREE = require('three')
 var OBJLoader = require('three-obj-loader')
+var OrbitControls = require('three-orbitcontrols')
 export default {
   computed: {
     patron () {
@@ -53,6 +54,16 @@ export default {
       }
     )
 
+    // const controls = new OrbitControls(camera, renderer.domElement)
+    // controls.enableZoom = true
+    // controls.autoRotate = true
+    // controls.mouseButtons = {
+    //     LEFT: THREE.MOUSE.ROTATE,
+    //     MIDDLE: THREE.MOUSE.DOLLY,
+    //     RIGHT: THREE.MOUSE.PAN
+    // }
+    // console.log(controls)
+
     camera.position.set(0, 200, 400)
 
     var animate = function () {
@@ -61,6 +72,7 @@ export default {
       if (modelLoaded) {
         scene.children[1].rotation.y += 0.01
       }
+      // controls.update();
 
       renderer.render(scene, camera)
     }
